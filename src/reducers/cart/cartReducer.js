@@ -2,19 +2,19 @@ import {addItemToCart, removeItemFromCart} from "./utils";
 
 const cartReducer = (state,action) => {
     switch (action.type) {
-        case 'add_item' : {
+        case 'ADD_ITEM' : {
             return addItemToCart(state,action.payload);
         }
 
-        case 'remove_item': {
+        case 'REMOVE_ITEM': {
             return removeItemFromCart(state,action.payload);
         }
 
-        case 'clear_item' : {
-            return state.filter(item=>item.id !== action.payload.id);
+        case 'CLEAR_ITEM' : {
+            return state.filter(item=>item.id !== action.payload);
         }
 
-        case 'clear_cart': {
+        case 'CLEAR_CART': {
             return [];
         }
     }

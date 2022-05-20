@@ -1,16 +1,18 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
+import {useCart} from "../utils/StoreProvider";
 
-
-const Header = ({ itemCount }) => (
-  <div className='flex items-center justify-between bg-slate-700 h-14 px-10'>
-    <Link to='/' className='text-white cursor-pointer'>
-          Ecommerce
-    </Link>
-    <Link to='/cart' className='text-white text-xl cursor-pointer'>
-          Cart{itemCount > 0 && `(${itemCount})`}
-    </Link>
-  </div>
-)
+const Header = () => {
+    const {cartItems} = useCart();
+    return (
+        <div className='flex items-center justify-between bg-slate-700 h-14 px-10'>
+            <Link to='/' className='text-white cursor-pointer'>
+                Ecommerce
+            </Link>
+            <Link to='/cart' className='text-white text-xl cursor-pointer'>
+                Cart{cartItems.length > 0 && `(${cartItems.reduce((prev,curr)=>prev+curr.quantity,0)})`}
+            </Link>
+        </div>
+    )
+}
 
 export default Header

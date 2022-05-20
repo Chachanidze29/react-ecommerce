@@ -1,0 +1,5 @@
+const PRODUCTS_ACTION_TYPE = {
+    INITIALIZE:'INITIALIZE'
+};
+
+export default PRODUCTS_ACTION_TYPE;

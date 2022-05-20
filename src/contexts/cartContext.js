@@ -1,4 +1,8 @@
 import {createContext} from "react";
 
-export const CartContext = createContext([]);
-export const CartReducerDispatcher = createContext(null);
+const CartContext = createContext({
+    cartItems:[],
+    cartDispatch:()=>{}
+});
+
+export default CartContext;
