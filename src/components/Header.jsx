@@ -4,7 +4,7 @@ import {useCart} from "../utils/StoreProvider";
 const Header = () => {
     const {cartItems} = useCart();
     return (
-        <div className='flex items-center justify-between bg-slate-700 h-14 px-10'>
+        <div className='sticky top-0 z-10 flex items-center justify-between bg-slate-700 h-14 px-10'>
             <Link to='/' className='text-white cursor-pointer'>
                 Ecommerce
             </Link>
@@ -15,4 +15,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Header;

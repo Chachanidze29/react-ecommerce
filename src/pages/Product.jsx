@@ -3,12 +3,13 @@ import Loader from '../components/Loader'
 import {useParams} from "react-router-dom";
 import {useCart, useProducts} from "../utils/StoreProvider";
 import {addProduct} from "../reducers/cart/cartActions";
+import CustomButton from "../components/CustomButton";
 
 const Product = ()=> {
+    const {cartDispatch} = useCart();
     const [loading,setLoading] = useState(true);
     const [product,setProduct] = useState({});
     const {productId} = useParams();
-    const {cartDispatch} = useCart();
     const {productItems} = useProducts();
 
     useEffect(()=> {
@@ -32,8 +33,9 @@ const Product = ()=> {
                                 <p>Rating: {product?.rating?.rate}</p>
                                 <p>Price: ${product?.price}</p>
                             </div>
-                            <button className='z-50 p-2 mt-4 text-white bg-blue-500 rounded-lg w-28'
-                                    onClick={() => cartDispatch(addProduct(product))}>Add to Cart</button>
+                            <CustomButton clickHandler={() => cartDispatch(addProduct(product))}>
+                                Add to Cart
+                            </CustomButton>
                         </div>
                     )
             }

@@ -4,27 +4,27 @@ import Product from '../components/Product'
 import Loader from '../components/Loader'
 import {useCart, useLoading, useProducts} from "../utils/StoreProvider";
 import {addProduct} from "../reducers/cart/cartActions";
+import CustomButton from "../components/CustomButton";
 
 const Products = () => {
     const {cartDispatch} = useCart();
-    const {productItems} = useProducts();
     const {isLoading} = useLoading();
+    const {productItems} = useProducts();
 
     return (
-        <div className='flex flex-col flex-wrap items-center w-full'>
+        <div className='flex max-w-screen-2xl mt-0 mb-0 ml-auto mr-auto flex-col flex-wrap items-center w-full'>
             {
                 isLoading ?
                     <Loader/>
                     :
                     productItems.map((product) =>
-                        <div key={product.id} className='flex flex-col w-1/2'>
-                            <Link to={`/products/${product.id}`}>
+                        <div key={product.id} className='flex flex-row items-center justify-between mt-10 w-3/4 items-start'>
+                            <Link className='basis-3/4' to={`/products/${product.id}`}>
                                 <Product key={product.id} product={product} />
                             </Link>
-                            <button className='bg-blue-400 w-40 p-2 mt-4 ml-10 text-white'
-                                    onClick={() => cartDispatch(addProduct(product))}
-                            >Add to Cart
-                            </button>
+                            <CustomButton clickHandler={() => cartDispatch(addProduct(product))}>
+                                Add to Cart
+                            </CustomButton>
                         </div>
                     )
             }

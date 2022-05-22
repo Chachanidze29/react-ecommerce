@@ -1,13 +1,13 @@
 import React from 'react'
-import { Routes, Route } from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
 import Header from './components/Header'
-import Products from './pages/Products'
 import Cart from './pages/Cart'
 import Product from './pages/Product'
+import Products from "./pages/Products";
 
 const App = ()=> (
     <div className="flex flex-col">
-        <Header/>
+        <Header />
         <Routes>
             <Route path='/' exact
                    element={<Products/>}/>
