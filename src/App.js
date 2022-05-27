@@ -3,10 +3,9 @@ import {Routes, Route} from 'react-router-dom'
 import {Suspense} from "react";
 import Header from './components/Header'
 import Loader from "./components/Loader";
-
-const Product = React.lazy(()=>import('./pages/Product'));
-const Cart = React.lazy(() => import('./pages/Cart'));
-const Products = React.lazy(()=>import("./pages/Products"));
+import Products from "./pages/Products";
+import Product from "./pages/Product";
+import Cart from "./pages/Cart";
 
 const App = ()=> (
     <Suspense fallback={<Loader/>}>
